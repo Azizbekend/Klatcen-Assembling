@@ -1,0 +1,94 @@
+// mixins.scss — содержит общие миксины
+@import "mixins";
+// fonts.scss - файл подключения шрифтов
+@import "fonts";
+
+// Общие переменные
+:root {
+    // --- Заполнение переменных шрифтов ----
+    // Заголовки
+    --font-title-bold: "";
+    --font-title-bold: "";
+
+    --font-subtitle: " ";
+
+    // Текст
+    --font-txt-bold: "";
+    --font-txt-light: "";
+    --font-txt-medium: "";
+    --font-txt-regular: "";
+    --font-txt-semiBold: "";
+
+    // --- Заполнение переменных шрифтов ---
+    --clr-white: white;
+}
+
+// null.scss — файл, в котором сбрасываются стандартные стили браузера
+@import "null";
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.wrapper {
+    width: 100%;
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    @include setProp(padding, 50, 50, 0);
+
+    &._loaded {
+    }
+}
+
+._container {
+    @include setProp(max-width, $maxWidthContainer, 320, 0);
+    margin: 0 auto;
+    @media (max-width: $md2+px) {
+        max-width: 750px;
+    }
+    @media (max-width: $md3+px) {
+        max-width: none;
+        &:not(._no-padding) {
+            @include setProp(padding-left, 24, 24, 0);
+            @include setProp(padding-right, 24, 24, 0);
+        }
+    }
+}
+
+.page {
+    flex: 1 1 auto;
+}
+
+.h1 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+.h2 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+.h3 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+.h4 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+.h5 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+.h6 {
+    // @include setProp(font-size, 12, 12, 0);
+}
+
+.text-xl {
+    // @include setProp(font-size, 20, 20, 0);
+}
+
+.text-lg {
+    // @include setProp(font-size, 18, 18, 0);
+}
+
+.text-sm {
+    // @include setProp(font-size, 14, 14, 0);
+}
+
+.text-xs {
+    // @include setProp(font-size, 12, 12, 0);
+}

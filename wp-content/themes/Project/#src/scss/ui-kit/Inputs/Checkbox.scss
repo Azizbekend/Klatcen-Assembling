@@ -1,0 +1,74 @@
+// === Input Checkbox ===
+
+.checkbox {
+    position: relative;
+
+    // .checkbox__input
+    &__input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+
+        // .checkbox__input:checked + .checkbox__text:before
+        &:checked + .checkbox__text:before {
+            background: #fff url("../img/icons/check.svg") center no-repeat;
+        }
+    }
+
+    // .checkbox__text
+    &__text {
+        display: inline-flex;
+        align-items: center;
+        position: relative;
+        color: inherit;
+        line-height: calc(20 / 20);
+        cursor: pointer;
+
+        @include setProp(font-size, 16, 16, 0);
+        @include setProp(letter-spacing, -0.3, 0.3, 0);
+
+        // .checkbox__text:before
+        &:before {
+            content: "";
+            align-self: flex-start;
+
+            flex-grow: 0;
+            flex-shrink: 0;
+
+            left: 0;
+            top: 0;
+
+            background: #fff;
+            border: 1px solid #a7a9ac;
+
+            @include setProp(width, 18, 18, 0);
+            @include setProp(height, 18, 18, 0);
+            @include setProp(flex-basis, 18, 18, 0);
+            @include setProp(margin-right, 14, 14, 0);
+        }
+    }
+
+    // checkbox a
+    & a {
+        color: #fff;
+        text-decoration: underline;
+        @media (min-width: $md2+px) {
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    // checkbox._error
+    &._error {
+        // checkbox._error .checkbox__text
+        & .checkbox__text {
+            // checkbox._error .checkbox__text:before
+            &:before {
+                border: 1px solid #ee1212;
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+// === Input Text ===
+.input {
+	// input__name
+	&__name {
+		@include setProp(font-size, 16, 16, 0);
+		& span {
+			color: red;
+		}
+	}
+
+	// input__input
+	&__input {
+		display: flex;
+		align-items: center;
+		@include setProp(gap, 10, 10, 0);
+
+		// input__icon input
+		& input {
+			flex: 1 1 auto;
+		}
+	}
+
+	// input__icon
+	&__icon {
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		@include setProp(width, 10, 10, 0);
+		@include setProp(height, 10, 10, 0);
+		& img {
+			height: 100%;
+			width: 100%;
+			object-fit: contain;
+		}
+	}
+
+	// input__error3
+	&__error {
+		display: none;
+		color: red;
+		@include setProp(font-size, 12, 12, 0);
+	}
+
+	// .input.__error
+	&._error {
+	}
+
+	// .input._focus
+	&._focus {
+	}
+}
+
+.textarea {
+}

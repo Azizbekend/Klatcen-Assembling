@@ -1,0 +1,115 @@
+//<SELECT (sel+tab)>====================================================================================================
+.select {
+    position: relative;
+
+    // .select__item
+    &__item {
+        position: relative;
+    }
+
+    // .select__title
+    &__title {
+        background-color: #fff;
+        cursor: pointer;
+        @include setProp(border-radius, 40, 40, 0);
+
+        @media (max-width: $md2+px) {
+            @include setProp(font-size, 16, 16, 0);
+        }
+    }
+
+    // .select__value
+    &__value {
+        display: flex;
+        @include setProp(font-size, 16, 16, 0);
+
+        @include setProp(height, 56, 56, 0);
+        @include setProp(padding-left, 24, 24, 0);
+        @include setProp(padding-right, 24, 24, 0);
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+
+        span {
+            height: fit-content;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+        }
+
+        &:before {
+            content: "";
+            display: inline-block;
+            transition: transform 0.3s ease 0s;
+            @include setProp(width, 16, 16, 0);
+            @include setProp(height, 12, 12, 0);
+            background: url("../img/icons/select.svg") center / 100% no-repeat;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        background-color: transparent;
+        height: 100%;
+    }
+
+    // .select__options
+    &__options {
+        color: #000;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        @include setProp(border-radius, 16, 16, 0);
+        @include setProp(margin-top, 12, 12, 0);
+
+        min-width: 100%;
+        background-color: #fff;
+        border: 1px solid #d9d9d9;
+        @include setProp(padding-top, 14, 4, 0);
+        @include setProp(padding-right, 64, 48, 0);
+        @include setProp(padding-bottom, 14, 4, 0);
+        @include setProp(padding-left, 28, 16, 0);
+        @include setProp(font-size, 16, 16, 0);
+        @include setProp(gap, 14, 14, 0);
+        @include setProp(max-height, 340, 280, 0);
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    // .select__option
+    &__option {
+        cursor: pointer;
+        @include setProp(padding-top, 12, 12, 0);
+        @include setProp(padding-bottom, 12, 12, 0);
+        line-height: 140%;
+        transition: color 0.3s;
+        @include setProp(font-size, 16, 16, 0);
+
+        display: flex;
+        flex-direction: column;
+        @include setProp(gap, 2, 2, 0);
+
+        @media (min-width: 992px) {
+            &:hover {
+            }
+        }
+    }
+    &__option-sub {
+        @include setProp(font-size, 14, 14, 0);
+    }
+
+    &._active {
+        z-index: 5;
+
+        .select__value {
+            &:before {
+                transform: rotate(-180deg);
+            }
+        }
+
+        .select__options {
+            display: block;
+        }
+    }
+}

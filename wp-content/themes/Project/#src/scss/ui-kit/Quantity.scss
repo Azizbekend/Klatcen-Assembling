@@ -1,0 +1,64 @@
+//<QUANTITY>====================================================================================================
+.quantity {
+	display: flex;
+	border: 1px solid rgba(166, 166, 166, 0.45);
+
+	@include setProp(width, 80, 80, 0);
+	@include setProp(height, 40, 40, 0);
+
+	// .quantity__button
+	&__button {
+		position: relative;
+		cursor: pointer;
+
+		flex-grow: 0;
+		flex-shrink: 0;
+
+		@include setProp(flex-basis, 30, 30, 0);
+
+		// .quantity__button::before
+		// .quantity__button::after
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transition: all 0.3s ease 0s;
+			background-color: #a6a6a6;
+
+			@include setProp(width, 9, 9, 0);
+			@include setProp(height, 1, 1, 0);
+			@include setProp(margin-left, -4.5, -4.5, 0);
+		}
+		@media (min-width: $md2+px) {
+			&:hover {
+				&::before,
+				&::after {
+					background-color: rgba(0, 0, 0, 0.5);
+				}
+			}
+		}
+		// .quantity__button_plus
+		&_plus {
+			&::before {
+				transform: rotate(-90deg);
+			}
+		}
+		// .quantity__button_minus
+		&_minus {
+		}
+	}
+	// .quantity__input
+	&__input {
+		flex: 1 1 auto;
+		input {
+			height: 100%;
+			color: #a6a6a6;
+			width: 100%;
+			text-align: center;
+
+			@include setProp(font-size, 12, 12, 0);
+		}
+	}
+}

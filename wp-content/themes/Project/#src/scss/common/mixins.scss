@@ -1,0 +1,61 @@
+//Подключение шрифта
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src:
+			url("../fonts/#{$file_name}.woff2") format("woff2"),
+			url("../fonts/#{$file_name}.woff") format("woff");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+//Адаптивное свойство
+@mixin setProp($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+
+	@if $type==1 {
+		#{$property}: calc(
+			#{$minSize / 10}rem + #{$addSize} * ((100vw - #{$minWidth / 10}rem) / #{$maxWidth - $minWidth})
+		) !important;
+	} @else {
+		//Всегда
+		#{$property}: calc(
+			#{$minSize / 10}rem + #{$addSize} * ((100vw - #{$minWidth / 10}rem) / #{$maxWidth - $minWidth})
+		);
+	}
+}
+
+// Функции для перевода px в %, rem, em
+@function prc($pxOne, $pxTwo) {
+	$result: $pxOne / $pxTwo * 100%;
+	@return $result;
+}
+@function rem($px) {
+	$result: $px / 16 + rem;
+	@return $result;
+}
+@function em($pxOne, $pxTwo) {
+	$result: $pxOne / $pxTwo + em;
+	@return $result;
+}
+
+//* Адаптивный калькулятор
+@mixin razmer($property, $startSize, $minSize) {
+	$addSize: $startSize - $minSize;
+	#{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / (1920 - 320)));
+}
+
+//<ПЕРЕМЕННЫЕ>==========================================================================================================
+$fontSize: 16;
+
+$minWidth: 375;
+$maxWidth: 1920;
+$maxWidthContainer: 1500;
+
+$adaptBreakpoint: 991.98;
+
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;

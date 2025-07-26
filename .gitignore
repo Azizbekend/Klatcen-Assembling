@@ -1,0 +1,17 @@
+# WordPress core (не нужно коммитить)
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Gulp / Node.js
+node_modules/
+package-lock.json
+
+# Скомпилированные файлы (если используете SCSS/JS)
+assets/css/*.css
+assets/css/*.css.map
+assets/js/*.min.js
+
+# Локальные настройки
+.env
+*.log

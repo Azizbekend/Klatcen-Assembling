@@ -1,0 +1,23 @@
+// === BUTTONS ===
+.button-background {
+    color: white;
+    background-color: var(--clr-red);
+}
+
+.button-border {
+    color: var(--clr-red);
+    border: 1px solid var(--clr-red);
+}
+
+.button-background,
+.button-border {
+    display: block;
+    text-align: center;
+    border-radius: em(16, 7);
+    @include setProp(font-size, 20, 18, 0);
+
+    &._icon {
+        display: flex;
+        align-items: center;
+    }
+}

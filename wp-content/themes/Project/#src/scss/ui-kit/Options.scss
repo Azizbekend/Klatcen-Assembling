@@ -1,0 +1,78 @@
+// === Options ===
+.options {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	// .options__item
+	&__item {
+		position: relative;
+		cursor: pointer;
+
+		// .options__item._error
+		&._error {
+		}
+	}
+
+	// .options__input
+	&__input {
+		position: absolute;
+		width: 0;
+		height: 0;
+		opacity: 0;
+		left: 0;
+		top: 0;
+		visibility: hidden;
+
+		// .options__input:checked + .options__text:before
+		&:checked + .options__text:before {
+		}
+
+		// .options__input:checked + .options__text:after
+		&:checked + .options__text:after {
+			transform: scale(1);
+		}
+	}
+
+	// .options__text
+	&__text {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		line-height: calc(20 / 16);
+
+		@include setProp(font-size, 16, 16, 0);
+		@include setProp(letter-spacing, -0.3, -0.3, 0);
+
+		// .options__text:before
+		&:before {
+			content: "";
+			align-self: flex-start;
+			flex-grow: 0;
+			flex-shrink: 0;
+
+			left: 0;
+			top: 0;
+
+			@include setProp(width, 18, 18, 0);
+			@include setProp(height, 18, 18, 0);
+			@include setProp(margin-right, 14, 14, 0);
+			@include setProp(flex-basis, 18, 18, 0);
+		}
+
+		// .options__text:before
+		&:after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			transform: scale(0);
+
+			position: absolute;
+
+			@include setProp(width, 10, 10, 0);
+			@include setProp(height, 10, 10, 0);
+			@include setProp(left, 5, 5, 0);
+			@include setProp(top, 4, 4, 0);
+		}
+	}
+}
+//</OPTIONS>====================================================================================================
