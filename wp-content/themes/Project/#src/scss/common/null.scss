@@ -42,7 +42,8 @@ body {
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
-	font-family: var(--font-txt-medium);
+	// font-family: var(--font-txt-medium);
+	// color: var(--clr-black);
 
 	&._lock {
 		overflow: hidden;

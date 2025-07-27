@@ -1,0 +1,5 @@
+.search {
+    border: 1px solid #777777;
+    @include setProp(font-size, 20, 16, 0);
+    @include setProp(padding, 10, 10, 0);
+}

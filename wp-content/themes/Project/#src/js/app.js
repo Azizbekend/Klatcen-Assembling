@@ -6,7 +6,6 @@
 @@include('CheckThen/scroll.js', {})
 @@include('CheckThen/ShowMore.js', {})
 @@include('CheckThen/SlideToggle.js', {})
-@@include('CheckThen/DigiFormat.js', {})
 
 // === components ===
 @@include('components/Form/Validations.js', {})
