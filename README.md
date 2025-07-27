@@ -10,7 +10,7 @@ git clone https://github.com/Azizbekend/Klatcen-landing.git
 
 2. Открываем нужную тему и скачиваем все библиотеки. В терменале вводим:
 ```powershell
-npm i
+Путь_к_папке_с_файлом_gulpfile.js> npm i
 ```
 
 3. Открываем OpenServer и создаём БД в PhpMyAdmin
