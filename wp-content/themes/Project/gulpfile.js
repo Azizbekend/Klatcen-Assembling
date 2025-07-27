@@ -51,7 +51,7 @@ const path = {
 function browserSync(done) {
 	browsersync.init({
 		proxy: {
-			target: "http://klatcen-testing",
+			target: "http://klatcen-wordpress-test/",
 		},
 		port: 3000, // Порт
 		notify: false, // Отключить уведомления
@@ -59,7 +59,7 @@ function browserSync(done) {
 		// https: true, // Включить HTTPS
 		open: 'external', // Открывать внешний URL
 		socket: {
-			domain: 'klatcen-testing:3000',
+			domain: 'klatcen-wordpress-test:3000',
 			secure: true // Для HTTPS
 		}
 	});
@@ -280,13 +280,12 @@ function imagesBuild() {
 // Build tasks
 let fontsBuild = series(fonts_otf, fonts, fontstyle);
 let buildDev = series(clean, parallel(fontsBuild, css, js, images));
-let watch = series(buildDev, parallel(watchFiles, browserSync));
+let watchProject = series(buildDev, parallel(watchFiles, browserSync));
 let build = series(clean, parallel(cssBuild, jsBuild, imagesBuild, fontsBuild));
 
 // Export
-exports.copy = copyFolders;
 exports.fonts = fontsBuild;
 exports.build = build;
 
-exports.watch = watch;
-exports.default = watch;
+exports.watch = watchProject;
+exports.default = watchProject;
