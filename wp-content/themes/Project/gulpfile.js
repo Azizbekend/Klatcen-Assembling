@@ -1,6 +1,7 @@
 const { src, dest, series, parallel, watch } = require("gulp");
 const fs = require("fs");
 const del = require("del");
+const fileinclude = require('gulp-file-include');
 
 const plumber = require("gulp-plumber");
 const browsersync = require("browser-sync").create();
@@ -73,10 +74,15 @@ function css() {
 function js() {
 	return src(path.src.js)
 		.pipe(plumber())
+		.pipe(fileinclude({
+			prefix: '@@',
+			basepath: '@file'
+		}))
 		.pipe(rename({ suffix: ".min", extname: ".js" }))
 		.pipe(dest(path.build.js))
 		.pipe(browsersync.stream());
 }
+
 
 // Images
 function images() {
