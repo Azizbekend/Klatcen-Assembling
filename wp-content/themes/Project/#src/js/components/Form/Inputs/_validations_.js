@@ -1,9 +1,10 @@
 
 // === Работа с инпутами и формами ===
-if (document.querySelector('[data-form]')) {
-	const forms = document.querySelectorAll("[data-form]");
+if (document.querySelector('form')) {
+	const forms = document.querySelectorAll("form");
+
 	forms.forEach(form => {
-		const formButton = form.querySelector("[data-submit]");
+		const formButton = form.querySelector("button");
 
 		// Добавление обработчиков событий к полям
 		const inputs = form.querySelectorAll("input")
@@ -59,6 +60,11 @@ function addEventPolicy(policyCheckboxes, button) {
 // Функция для добавления обработчиков событий к инпутам
 function addEventInput(input) {
 	switch (input.name) {
+		case "name":
+			input.addEventListener('input', function () {
+				this.value = this.value.replace(/[^а-яА-ЯёЁ\s]/g, '');
+			});
+			break;
 		case "name":
 			input.addEventListener('input', function () {
 				this.value = this.value.replace(/[^а-яА-ЯёЁ\s]/g, '');

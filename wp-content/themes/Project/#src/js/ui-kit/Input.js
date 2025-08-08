@@ -1,3 +1,5 @@
+// === Input ===
+
 // Активация просмотра пароля
 const passwords = document.querySelectorAll(".password");
 
@@ -20,7 +22,7 @@ if (passwords) {
 }
 
 
-//Placeholers
+//Inputs
 let inputs = document.querySelectorAll('input[data-value],textarea[data-value]');
 inputs_init(inputs);
 
